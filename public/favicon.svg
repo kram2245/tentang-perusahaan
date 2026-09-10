@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="sucofindo-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0275d8" />
+      <stop offset="100%" stop-color="#002b66" />
+    </linearGradient>
+  </defs>
+  <!-- Background Badge Container for maximum contrast in both Dark & Light tab themes -->
+  <rect width="64" height="64" rx="16" fill="#ffffff" />
+  <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" stroke="#e2e8f0" stroke-width="2" />
+  
+  <!-- Main Globe Emblem -->
+  <circle cx="32" cy="32" r="23" fill="url(#sucofindo-blue)" />
+  
+  <!-- White Globe Lines -->
+  <!-- Horizontal Equator -->
+  <line x1="9" y1="32" x2="55" y2="32" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+  
+  <!-- Curved Latitudes (North and South) -->
+  <path d="M13 22 C22 26 42 26 51 22" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none" />
+  <path d="M13 42 C22 38 42 38 51 42" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none" />
+  
+  <!-- Vertical Prime Meridian -->
+  <line x1="32" y1="9" x2="32" y2="55" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" />
+  
+  <!-- Curved Longitudes (West and East) -->
+  <path d="M32 9 C20 19 20 45 32 55" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none" />
+  <path d="M32 9 C44 19 44 45 32 55" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" fill="none" />
+  
+  <!-- Central Gold Assurance Dot -->
+  <circle cx="32" cy="32" r="3.5" fill="#f59e0b" stroke="#ffffff" stroke-width="1.2" />
+</svg>

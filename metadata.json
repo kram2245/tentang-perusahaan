@@ -1,0 +1,6 @@
+{
+  "name": "PT Sucofindo - Unit Pelayanan Duri",
+  "description": "Website Company Profile Resmi PT Sucofindo Unit Pelayanan Duri - Inspeksi, Pengujian, Sertifikasi, Konsultasi, dan Pelatihan BUMN.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

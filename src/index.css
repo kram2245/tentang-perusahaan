@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #030a16;
+  --color-navy-900: #06152b;
+  --color-navy-800: #0a2246;
+  --color-navy-700: #0f3263;
+  --color-navy-600: #17488b;
+  --color-navy-500: #1d5cb2;
+  --color-gold-500: #d97706;
+  --color-gold-400: #f59e0b;
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.8s infinite;
+}
+
+/* Material Design Tap Ripple Effect (Android style) */
+@keyframes material-ripple-expand {
+  0% {
+    transform: scale(0);
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.22;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.material-ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  transform: scale(0);
+  animation: material-ripple-expand 0.5s cubic-bezier(0.1, 0.6, 0.2, 1) forwards;
+  z-index: 30;
+  will-change: transform, opacity;
+}
+
+
