@@ -52,7 +52,7 @@ export const About: React.FC<AboutProps> = ({ theme = 'dark' }) => {
       title: 'Website Utama',
       value: 'www.sucofindo.co.id',
       icon: Globe,
-      badge: 'Portal Resmi',
+      badge: 'Official Website',
       colorLight: 'bg-purple-500/10 text-purple-600 border-purple-200',
       colorDark: 'bg-purple-950/50 text-purple-400 border-purple-500/40 shadow-[0_0_12px_rgba(168,85,247,0.25)]',
       actionType: 'external',
@@ -191,7 +191,7 @@ export const About: React.FC<AboutProps> = ({ theme = 'dark' }) => {
                     }`}>
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-full ${isLight ? 'bg-slate-100 text-slate-600' : 'bg-navy-800 text-slate-300'}`}>
+                    <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap shrink-0 ${isLight ? 'bg-slate-100 text-slate-600' : 'bg-navy-800 text-slate-300'}`}>
                       {card.badge}
                     </span>
                   </div>
