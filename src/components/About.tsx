@@ -100,7 +100,7 @@ export const About: React.FC<AboutProps> = ({ theme = 'dark' }) => {
                 : 'w-28 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent shadow-[0_0_8px_rgba(234,179,8,0.5)]'
             }`} />
             <p className={`text-base sm:text-lg leading-relaxed pt-2 ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
-              PT Superintending Company of Indonesia (Persero) Unit Pelayanan Duri hadir sebagai BUMN terdepan dalam menyediakan layanan kepastian mutu, keselamatan kerja, serta pengujian laboratorium dan inspeksi teknik di wilayah Duri dan sekitarnya.
+              PT Superintending Company of Indonesia (Persero) Unit Pelayanan Duri hadir sebagai perusahaan terdepan dalam menyediakan layanan kepastian mutu, keselamatan kerja, serta pengujian laboratorium dan inspeksi teknik di wilayah Duri dan sekitarnya.
             </p>
           </div>
         </ScrollReveal>

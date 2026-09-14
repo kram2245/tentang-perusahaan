@@ -274,8 +274,8 @@ export const MobileServiceCarousel: React.FC<MobileServiceCarouselProps> = ({
                   : 'scale-[0.95] opacity-75'
               } ${
                 isLight
-                  ? `bg-slate-50/95 border-slate-200/90 ${item.themeColor.hoverBorderLight} ${item.themeColor.hoverShadowLight}`
-                  : `bg-navy-900/90 backdrop-blur-xs border-white/15 ${item.themeColor.hoverBorderDark} ${item.themeColor.hoverShadowDark}`
+                  ? `bg-white border-slate-200 shadow-md ${item.themeColor.hoverBorderLight} ${item.themeColor.hoverShadowLight}`
+                  : `bg-navy-900 border-navy-800 shadow-xl ${item.themeColor.hoverBorderDark} ${item.themeColor.hoverShadowDark}`
               }`}
               id={`scope-mobile-item-${item.id}`}
             >
@@ -294,7 +294,7 @@ export const MobileServiceCarousel: React.FC<MobileServiceCarouselProps> = ({
                       className={`text-2xl font-black font-mono leading-none ${
                         isLight
                           ? 'text-navy-900/40'
-                          : 'bg-gradient-to-br from-amber-300 to-gold-400 bg-clip-text text-transparent'
+                          : 'text-gold-400 font-extrabold'
                       }`}
                     >
                       {item.numberStr}
@@ -332,8 +332,8 @@ export const MobileServiceCarousel: React.FC<MobileServiceCarouselProps> = ({
                       key={tIdx}
                       className={`text-[10px] font-semibold px-2 py-0.5 rounded-md ${
                         isLight
-                          ? 'bg-slate-200/80 text-slate-700'
-                          : 'bg-navy-950/80 text-slate-300 border border-white/10'
+                          ? 'bg-slate-100 text-slate-700 border border-slate-200'
+                          : 'bg-navy-950 text-slate-200 border border-navy-800'
                       }`}
                     >
                       {tag}
@@ -343,7 +343,9 @@ export const MobileServiceCarousel: React.FC<MobileServiceCarouselProps> = ({
               </div>
 
               {/* Bottom Action Button */}
-              <div className="relative z-10 pt-3 border-t border-white/10">
+              <div className={`relative z-10 pt-3 border-t ${
+                isLight ? 'border-slate-200' : 'border-navy-800'
+              }`}>
                 <button
                   type="button"
                   onClick={(e) => {

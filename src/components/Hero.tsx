@@ -18,10 +18,12 @@ interface SectorDetail {
 
 interface HeroProps {
   onSelectService?: (serviceId: string) => void;
+  theme?: 'dark' | 'light';
 }
 
-export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
+export const Hero: React.FC<HeroProps> = ({ onSelectService, theme = 'dark' }) => {
   const [selectedSector, setSelectedSector] = useState<SectorDetail | null>(null);
+  const isLight = theme === 'light';
 
   const handleScrollToContact = (e: React.MouseEvent<React.AnchorHTMLAttributes<HTMLAnchorElement>>) => {
     e.preventDefault();
@@ -68,7 +70,8 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
         'Inspeksi Bejana Tekan',
         'Inspeksi Alat Pengaman',
         'Inspeksi Tangki',
-        'Inspeksi Pipa Penyalur'
+        'Inspeksi Pipa Penyalur',
+        'Instalasi Umum'
       ]
     },
     {
@@ -82,14 +85,14 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
       iconColor: 'text-indigo-400',
       badgeColor: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20',
       features: [
-        'Inspektur Boiler (Pesawat Uap)',
-        'Ahli K3 Listrik',
-        'Inspektur Pesawat Tenaga & Produksi',
-        'Inspektur Proteksi Kebakaran (Alarm, Fire System, Hidran)',
-        'Inspektur Elevator/Lift',
+        'Inspeksi Boiler (Pesawat Uap)',
+        'K3 Listrik dan Penangkal Petir',
+        'Inspeksi Pesawat Tenaga & Produksi',
+        'Inspeksi Proteksi Kebakaran (Alarm, Fire System, Hidran)',
+        'Inspeksi Elevator/Lift',
         'Welding Inspeksi',
-        'Inspektur SLO PLTD',
-        'Inspektur Instalasi Listrik (SLO)',
+        'Inspeksi SLO PLTD',
+        'Inspeksi Instalasi Listrik (SLO)',
         'Personil PDKB'
       ]
     },
@@ -114,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
     {
       id: 'ebtke',
       category: 'Energi Terbarukan',
-      title: 'Area EBTKE (Geothermal)',
+      title: 'Inspeksi & Sertifikasi EBTKE (Geothermal)',
       description: 'Pengujian & konsultasi teknis energi panas bumi & konservasi.',
       fullDetail: 'Pengujian dan konsultasi teknis untuk energi panas bumi dan konservasi energi, termasuk pengukuran efisiensi dan kepatuhan terhadap standar lingkungan.',
       icon: Zap,
@@ -141,6 +144,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
         'Persetujuan Penggunaan Kawasan Hutan (PPKH)',
         'Dokumen Penyusunan Persetujuan Teknis Air Limbah',
         'UKL/UPL',
+        'AMDAL (Analisa Dampak Lingkungan)',
         'Penyusunan Dokumen Lingkungan Kerja'
       ]
     }
@@ -149,7 +153,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
   return (
     <section
       id="beranda"
-      className="relative min-h-[92vh] pt-28 pb-16 md:pt-36 md:pb-24 bg-cover bg-center bg-no-repeat text-white overflow-hidden flex items-center"
+      className="relative min-h-[88vh] pt-16 pb-16 md:pt-20 md:pb-24 bg-cover bg-center bg-no-repeat text-white overflow-hidden flex items-center"
       style={{ backgroundImage: "url('https://i.postimg.cc/CKGgbGgg/IMG-20260730-WA0152.jpg')" }}
     >
       {/* Dark Semi-Transparent Gradient Overlay for Optimal Readability & Contrast */}
@@ -322,7 +326,11 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
           onClick={() => setSelectedSector(null)}
         >
           <div 
-            className="bg-navy-900 border border-blue-400/30 text-white rounded-2xl shadow-2xl max-w-lg w-full p-6 sm:p-8 space-y-6 relative animate-scaleUp overflow-hidden"
+            className={`rounded-2xl shadow-2xl max-w-lg w-full p-6 sm:p-8 space-y-6 relative animate-scaleUp overflow-hidden border transition-colors ${
+              isLight
+                ? 'bg-white border-slate-200 text-slate-800'
+                : 'bg-navy-900 border-blue-400/30 text-white'
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Background Glow */}
@@ -332,7 +340,11 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
             <button
               type="button"
               onClick={() => setSelectedSector(null)}
-              className="absolute top-4 right-4 p-2 rounded-xl bg-navy-800 text-slate-400 hover:text-white hover:bg-navy-700 transition-colors border border-navy-700 focus:outline-none focus:ring-2 focus:ring-gold-400"
+              className={`absolute top-4 right-4 p-2 rounded-xl transition-colors border focus:outline-none focus:ring-2 focus:ring-gold-400 ${
+                isLight
+                  ? 'bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border-slate-200'
+                  : 'bg-navy-800 text-slate-400 hover:text-white hover:bg-navy-700 border-navy-700'
+              }`}
               aria-label="Tutup detail modal"
               id="close-sector-modal"
             >
@@ -348,15 +360,19 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
                 <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded border ${selectedSector.badgeColor} inline-block`}>
                   {selectedSector.category}
                 </span>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
+                <h3 className={`text-xl sm:text-2xl font-extrabold leading-tight ${isLight ? 'text-navy-900' : 'text-white'}`}>
                   {selectedSector.modalTitle || selectedSector.title}
                 </h3>
               </div>
             </div>
 
             {/* Modal Detail Content */}
-            <div className="space-y-4 border-t border-navy-800/90 pt-4">
-              <p className="text-sm text-slate-200 leading-relaxed font-normal bg-navy-800/60 p-4 rounded-xl border border-navy-700/60">
+            <div className={`space-y-4 border-t pt-4 ${isLight ? 'border-slate-200' : 'border-navy-800/90'}`}>
+              <p className={`text-sm leading-relaxed font-normal p-4 rounded-xl border ${
+                isLight
+                  ? 'bg-slate-50 text-slate-700 border-slate-200'
+                  : 'bg-navy-800/60 text-slate-200 border-navy-700/60'
+              }`}>
                 {selectedSector.fullDetail}
               </p>
 
@@ -368,7 +384,7 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
                 </h4>
                 <ul className="space-y-2">
                   {selectedSector.features.map((feat, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs text-slate-300">
+                    <li key={idx} className={`flex items-start gap-2.5 text-xs ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{feat}</span>
                     </li>
@@ -378,11 +394,17 @@ export const Hero: React.FC<HeroProps> = ({ onSelectService }) => {
             </div>
 
             {/* Modal Actions */}
-            <div className="flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t border-navy-800/90">
+            <div className={`flex flex-col sm:flex-row items-center justify-end gap-3 pt-4 border-t ${
+              isLight ? 'border-slate-200' : 'border-navy-800/90'
+            }`}>
               <button
                 type="button"
                 onClick={() => setSelectedSector(null)}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-navy-800 hover:bg-navy-700 text-slate-300 font-bold text-xs transition-colors border border-navy-700"
+                className={`w-full sm:w-auto px-5 py-2.5 rounded-xl font-bold text-xs transition-colors border ${
+                  isLight
+                    ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                    : 'bg-navy-800 hover:bg-navy-700 text-slate-300 border-navy-700'
+                }`}
               >
                 Tutup
               </button>

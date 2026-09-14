@@ -36,9 +36,10 @@ export const servicesData: ServiceData[] = [
       'Inspeksi Bejana Tekan',
       'Inspeksi Alat Pengaman',
       'Inspeksi Tangki',
-      'Inspeksi Pipa Penyalur'
+      'Inspeksi Pipa Penyalur',
+      'Instalasi Umum'
     ],
-    tags: ['Area Migas', 'Pipa Penyalur', 'Bejana Tekan', 'Tangki']
+    tags: ['Area Migas', 'Pipa Penyalur', 'Bejana Tekan', 'Instalasi Umum', 'Tangki']
   },
   {
     id: 'inspeksi-sertifikasi',
@@ -53,14 +54,14 @@ export const servicesData: ServiceData[] = [
     iconColor: 'text-indigo-400',
     badgeColor: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20',
     features: [
-      'Inspektur Boiler (Pesawat Uap)',
-      'Ahli K3 Listrik',
-      'Inspektur Pesawat Tenaga & Produksi',
-      'Inspektur Proteksi Kebakaran (Alarm, Fire System, Hidran)',
-      'Inspektur Elevator/Lift',
+      'Inspeksi Boiler (Pesawat Uap)',
+      'K3 Listrik dan Penangkal Petir',
+      'Inspeksi Pesawat Tenaga & Produksi',
+      'Inspeksi Proteksi Kebakaran (Alarm, Fire System, Hidran)',
+      'Inspeksi Elevator/Lift',
       'Welding Inspeksi',
-      'Inspektur SLO PLTD',
-      'Inspektur Instalasi Listrik (SLO)',
+      'Inspeksi SLO PLTD',
+      'Inspeksi Instalasi Listrik (SLO)',
       'Personil PDKB'
     ],
     tags: ['Area Industri', 'K3 Kemnaker', 'DJK', 'Boiler', 'SLO Listrik']
@@ -90,7 +91,7 @@ export const servicesData: ServiceData[] = [
   {
     id: 'ebtke',
     category: 'Energi Terbarukan',
-    title: 'Area EBTKE (Geothermal)',
+    title: 'Inspeksi & Sertifikasi EBTKE (Geothermal)',
     description: 'Pengujian & konsultasi teknis energi panas bumi & konservasi.',
     fullDetail: 'Pengujian dan konsultasi teknis untuk energi panas bumi dan konservasi energi, termasuk pengukuran efisiensi dan kepatuhan terhadap standar lingkungan.',
     image: 'https://i.postimg.cc/C1ZKyvB3/IMG-20260730-WA0226.jpg',
@@ -122,8 +123,9 @@ export const servicesData: ServiceData[] = [
       'Persetujuan Penggunaan Kawasan Hutan (PPKH)',
       'Dokumen Penyusunan Persetujuan Teknis Air Limbah',
       'UKL/UPL',
+      'AMDAL (Analisa Dampak Lingkungan)',
       'Penyusunan Dokumen Lingkungan Kerja'
     ],
-    tags: ['PPKH', 'Air Limbah', 'UKL/UPL', 'Dokumen Lingkungan']
+    tags: ['PPKH', 'AMDAL', 'Air Limbah', 'UKL/UPL', 'Dokumen Lingkungan']
   }
 ];

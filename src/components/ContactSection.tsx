@@ -179,7 +179,7 @@ Detail: ${formData.message.trim()}`;
                     <Globe className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className={`text-xs font-semibold uppercase tracking-wider ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>Website Portal</div>
+                    <div className={`text-xs font-semibold uppercase tracking-wider ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>OFFICIAL WEBSITE</div>
                     <a
                       href="https://www.sucofindo.co.id"
                       target="_blank"
@@ -369,7 +369,7 @@ Detail: ${formData.message.trim()}`;
                     }`}
                   >
                     <option value="Non Destructive Test (NDT)">Non Destructive Test (NDT)</option>
-                    <option value="Area EBTKE (Geothermal)">Area EBTKE (Geothermal)</option>
+                    <option value="Inspeksi & Sertifikasi EBTKE (Geothermal)">Inspeksi & Sertifikasi EBTKE (Geothermal)</option>
                     <option value="Lingkungan">Pengujian & Uji Lingkungan</option>
                     <option value="Area Migas">Inspeksi Area Migas</option>
                     <option value="Sertifikasi Industri">Sertifikasi Industri (ISO / TKDN / SMK3)</option>

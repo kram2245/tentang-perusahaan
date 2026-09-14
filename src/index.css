@@ -3,12 +3,24 @@
 @theme {
   --color-navy-950: #030a16;
   --color-navy-900: #06152b;
+  --color-navy-850: #081c38;
   --color-navy-800: #0a2246;
+  --color-navy-750: #0c2b55;
   --color-navy-700: #0f3263;
   --color-navy-600: #17488b;
   --color-navy-500: #1d5cb2;
+  --color-navy-400: #3b82f6;
+  --color-navy-300: #93c5fd;
+  --color-navy-200: #bfdbfe;
+  --color-navy-100: #dbeafe;
+  --color-navy-50: #eff6ff;
+
+  --color-gold-600: #b45309;
   --color-gold-500: #d97706;
   --color-gold-400: #f59e0b;
+  --color-gold-300: #fcd34d;
+  --color-gold-200: #fde68a;
+  --color-gold-100: #fef3c7;
 }
 
 @layer utilities {

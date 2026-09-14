@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { HeroBannerSlider } from './components/HeroBannerSlider';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -19,7 +20,17 @@ export default function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [activeSection, setActiveSection] = useState('beranda');
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('sucofindo_theme');
+        if (saved === 'light' || saved === 'dark') return saved;
+      } catch (e) {
+        // Fallback to default
+      }
+    }
+    return 'dark';
+  });
   const [isLoadingDetail, setIsLoadingDetail] = useState(false);
 
   const selectedService = selectedServiceId
@@ -38,14 +49,24 @@ export default function App() {
     return () => cleanupRipple();
   }, []);
 
-  // Synchronize theme classes on document.documentElement for styling & ripple contrast
+  // Synchronize theme classes on document.documentElement and document.body
   useEffect(() => {
+    try {
+      localStorage.setItem('sucofindo_theme', theme);
+    } catch (e) {
+      // ignore
+    }
+
     if (theme === 'light') {
-      document.documentElement.classList.add('light-theme');
+      document.documentElement.classList.add('light-theme', 'light');
       document.documentElement.classList.remove('dark');
+      document.body.classList.add('bg-slate-50', 'text-slate-900');
+      document.body.classList.remove('bg-navy-950', 'text-slate-100');
     } else {
-      document.documentElement.classList.remove('light-theme');
+      document.documentElement.classList.remove('light-theme', 'light');
       document.documentElement.classList.add('dark');
+      document.body.classList.add('bg-navy-950', 'text-slate-100');
+      document.body.classList.remove('bg-slate-50', 'text-slate-900');
     }
   }, [theme]);
 
@@ -127,7 +148,7 @@ export default function App() {
       {/* Scroll Progress Bar */}
       <ScrollProgressBar />
 
-      {/* Sticky Navigation Bar */}
+      {/* 1. Navbar: PALING ATAS, Fixed, Tidak Berubah */}
       <Navbar 
         activeSection={activeSection} 
         onNavigateHome={handleBackToHome}
@@ -136,8 +157,10 @@ export default function App() {
         onToggleTheme={toggleTheme}
       />
 
-      {/* Main Content */}
-      <main className="flex-grow">
+      {/* Main Content with top padding offset matching the fixed navbar */}
+      <main className={`flex-grow pt-[72px] sm:pt-[76px] lg:pt-[80px] transition-colors duration-300 ${
+        isLight ? 'bg-slate-50' : 'bg-navy-950'
+      }`}>
         {selectedService ? (
           isLoadingDetail ? (
             <ServiceDetailSkeleton theme={theme} />
@@ -151,8 +174,11 @@ export default function App() {
           )
         ) : (
           <>
+            {/* 2. Hero Banner Slider: DI BAWAH NAVBAR */}
+            <HeroBannerSlider theme={theme} />
+
             {/* Section 1: Hero */}
-            <Hero onSelectService={handleSelectService} />
+            <Hero onSelectService={handleSelectService} theme={theme} />
 
             {/* Section 2: Tentang Kami */}
             <About theme={theme} />

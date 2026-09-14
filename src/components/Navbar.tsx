@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             return;
           }
 
-          // Beyond 15px, activate shadow styling
+          // Beyond 15px, activate sticky shadow styling
           setIsScrolled(true);
 
           // If mobile menu is currently open, keep navbar visible
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           const diff = currentScrollY - lastScrollYRef.current;
 
-          // Scroll DOWN -> Hide navbar smoothly (active across all sections)
+          // Scroll DOWN -> Hide navbar smoothly
           if (diff > 2 && currentScrollY > 50) {
             setIsVisible(false);
           }
@@ -113,6 +113,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     }
     if (onSelectSection) {
       onSelectSection(targetSection);
+    }
+
+    if (href === '#beranda') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
     }
 
     setTimeout(() => {
